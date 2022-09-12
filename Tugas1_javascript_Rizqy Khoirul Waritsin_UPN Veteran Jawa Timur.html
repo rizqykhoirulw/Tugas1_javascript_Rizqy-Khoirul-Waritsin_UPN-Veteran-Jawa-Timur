@@ -1,0 +1,56 @@
+<script lang="javascript">
+    let pegawai = "Rizqy";
+    let jabatan = "Manager";
+    let status = "Menikah";
+
+    let gajiPokok = "" ;
+    if (jabatan == "Manager") {
+        gajiPokok = 15000000;
+    } else if (jabatan == "Asisten Manager") {
+        gajiPokok = 10000000;
+    } else if (jabatan == "Staff") {
+        gajiPokok = 5000000;
+    } else {
+        gajiPokok = "Jabatan tidak dapat ditemukan"
+    }
+
+    let tunjangJabatan = 15/100 * gajiPokok;
+    let bpjs = 10/100 * gajiPokok;
+    let tunjangKeluarga = (status == "Menikah")? 20/100*gajiPokok : 0;
+
+    let totalGaji = gajiPokok+tunjangJabatan+bpjs+tunjangKeluarga;
+
+    document.write(` <h1 style="text-align: center;font-family: arial;">Data pegawai</h1>
+    <table border="1" cellpadding="15" cellspacing="0" align="center" style="text-align: center;">
+        <thead style="font-family: arial;">
+            <tr>
+                <th>Nama</th>
+                <th>Jabatan</th>
+                <th>Status</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Jabatan</th>
+                <th>BPJS</th>
+                <th>Tunjangan Keluarga</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> ${pegawai} </td>
+                <td> ${jabatan} </td>
+                <td> ${status} </td>
+                <td> ${gajiPokok} </td>
+                <td> ${tunjangJabatan} </td>
+                <td> ${bpjs} </td>
+                <td> ${tunjangKeluarga} </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="6" style="font-family: arial;">
+                    Total Gaji
+                </th>
+                <td> ${totalGaji} </td>
+            </tr>
+        </tfoot>
+    </table>`)
+</script>
