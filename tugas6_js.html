@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Gempa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Daftar Tabel Dampak Gempa</h1>
+                <br>
+                <table class="table text-center table-bordered table-hover">
+                    <thead class="table-dark">
+                      <tr>
+                        <th>No</th>
+                        <th>Lokasi</th>
+                        <th>Skala</th>
+                        <th>Dampak</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <script lang="javascript">
+
+                        class Gempa{
+                            constructor(no, lokasi, skala){
+                                this.no = no;
+                                this.lokasi = lokasi;
+                                this.skala = skala;
+                            }
+
+                            dampak(){
+                                if(this.skala <= 2){
+                                    this.dampakgempa = "Tidak Terasa";
+                                } else if(this.skala > 2 && this.skala <= 4) {
+                                    this.dampakgempa = "Bangunan retak-retak";
+                                } else if(this.skala > 4 && this.skala <=6) {
+                                    this.dampakgempa = "Bangunan Roboh";
+                                } else if(this.skala > 6) {
+                                    this.dampakgempa = "Bangunan Roboh dan berpotensi tsunami";
+                                }    
+                                return this.dampakgempa;
+                            }
+
+                            infoGempa(){
+                                document.write(`
+                                <tr>
+                                        <td>${this.no}</td>
+                                        <td>${this.lokasi}</td>
+                                        <td>${this.skala}</td>
+                                        <td>${this.dampak()}</td>
+                                </tr>
+                                `)
+                            }
+                            
+                        }
+
+                        g1 = new Gempa ( 1, "Sidoarjo", '3');
+                        g2 = new Gempa ( 2, "Surabaya", '4');
+                        g3 = new Gempa ( 3, "Situbondo", '6');
+                        g4 = new Gempa ( 4, "Semarang", '8');
+                        g5 = new Gempa ( 5, "Solo", '1');
+                        g6 = new Gempa ( 6, "Salatiga", '3');
+                        g7 = new Gempa ( 7, "Sampang", '7');
+                        g8 = new Gempa ( 8, "Sleman", '2');
+                        g9 = new Gempa ( 9, "Sulawesi", '5');
+                        g10 = new Gempa ( 10, "Sumatra", '8');
+
+                        g1.infoGempa(); g2.infoGempa(); g3.infoGempa(); g4.infoGempa(); g5.infoGempa(); g6.infoGempa(); g7.infoGempa(); g8.infoGempa(); g9.infoGempa();
+                        g10.infoGempa();
+
+                      </script>
+                       
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+</body>
+</html>
